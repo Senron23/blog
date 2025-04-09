@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOGEEZI</title>
+    <link rel="stylesheet" href="homestyle.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>BLOGEEZI</h1>
+        </div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="create.html">Create</a>
+            <a href="blogs.html">Blogs</a>
+            <div class="user-container">
+                <span class="user-icon" onclick="toggleUserDropdown()">
+                    <ion-icon name="person"></ion-icon>
+                </span>
+                <div id="userDropdown" class="user-dropdown">
+                    <ul>
+                        <li><a href="#"><ion-icon name="person-outline"></ion-icon> YOUR PROFILE</a></li>
+                        <li><a href="#"><ion-icon name="settings-outline"></ion-icon> ACCOUNT SETTINGS</a></li>
+                        <li><a href="#"><ion-icon name="share-social-outline"></ion-icon> CONTENT & SOCIAL</a></li>
+                        <li class="logout"><a href="#" onclick="logout(); return false;"><ion-icon name="log-out-outline"></ion-icon> LOGOUT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    <section class="featured-blogs">
+        <div class="create-button">
+            <button class="createBtn">Create<ion-icon name="play" class =playBtn></ion-icon></button>
+        </div>
+        <div class="opening">
+            <h2 class="section-title">Welcome to Blogeezi </h2>
+            
+            <a href="#" class="explore">Explore</a>
+        </div>
+        <div class="card-slider">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog1.jpg" alt="Blog Image">
+                    </div>
+                    <h3>The Art of Mindfulness</h3>
+                    <p>Discover how practicing mindfulness can transform your daily life and reduce stress.</p>
+                    <div class="card-footer">
+                        <span class="author">By Sarah Johnson</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog2.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Sustainable Living Tips</h3>
+                    <p>Simple ways to reduce your carbon footprint and live more sustainably.</p>
+                    <div class="card-footer">
+                        <span class="author">By Michael Chen</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog3.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Modern Web Development</h3>
+                    <p>Exploring the latest trends and technologies in web development for 2023.</p>
+                    <div class="card-footer">
+                        <span class="author">By Alex Rivera</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog4.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Healthy Eating Habits</h3>
+                    <p>Nutritional advice and meal planning tips for a balanced lifestyle.</p>
+                    <div class="card-footer">
+                        <span class="author">By Emma Wilson</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog5.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Travel on a Budget</h3>
+                    <p>How to explore the world without breaking the bank - tips and tricks.</p>
+                    <div class="card-footer">
+                        <span class="author">By David Thompson</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 6  -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog6.jpg" alt="Blog Image">
+                    </div>
+                    <h3>The Future of AI</h3>
+                    <p>Exploring how artificial intelligence is reshaping industries and daily life.</p>
+                    <div class="card-footer">
+                        <span class="author">By Priya Patel</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 7 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog7.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Photography Basics</h3>
+                    <p>A beginner's guide to understanding composition, lighting, and camera settings.</p>
+                    <div class="card-footer">
+                        <span class="author">By James Wilson</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 8 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog8.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Financial Freedom</h3>
+                    <p>Strategies for saving, investing, and building wealth for your future.</p>
+                    <div class="card-footer">
+                        <span class="author">By Olivia Martinez</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 9 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog9.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Mental Health Awareness</h3>
+                    <p>Breaking stigmas and promoting understanding of common mental health issues.</p>
+                    <div class="card-footer">
+                        <span class="author">By Thomas Lee</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 10 -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="assets/blog10.jpg" alt="Blog Image">
+                    </div>
+                    <h3>Home Gardening</h3>
+                    <p>Tips for growing your own vegetables and herbs, even in small spaces.</p>
+                    <div class="card-footer">
+                        <span class="author">By Sophia Garcia</span>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load auth.js first to make protectRoute and logout functions available -->
+    <script src="auth.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Direct toggle function for the user dropdown
+        function toggleUserDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('active');
+            console.log('Dropdown toggled via onclick function');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle user dropdown
+            const userIcon = document.querySelector('.user-icon');
+            const userDropdown = document.getElementById('userDropdown');
+            
+            if (userIcon && userDropdown) {
+                userIcon.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    userDropdown.classList.toggle('active');
+                    console.log('User icon clicked, dropdown toggled');
+                });
+                
+                document.addEventListener('click', function(event) {
+                    if (!userDropdown.contains(event.target) && !userIcon.contains(event.target)) {
+                        userDropdown.classList.remove('active');
+                    }
+                });
+            } else {
+                console.error('User icon or dropdown elements not found');
+            }
+            
+            // Check authentication and set up logout
+            if (typeof protectRoute === 'function') {
+                protectRoute();
+            } else {
+                console.error('protectRoute function not available');
+            }
+            
+            // Add logout handler to logout button
+            const logoutButton = document.querySelector('.logout a');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (typeof logout === 'function') {
+                        logout();
+                    } else {
+                        console.error('logout function not available');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

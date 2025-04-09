@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="homestyle.css">
+    <!-- Replace Ionicons with Font Awesome for reliable icon rendering -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>BLOGEEZI</h1>
+        </div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="create.html">Create</a>
+            <a href="blogs.html">Blogs</a>
+            <div class="user-container">
+                <span class="user-icon"><i class="fas fa-user"></i></span>
+                <div id="userDropdown" class="user-dropdown">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-user"></i> YOUR PROFILE</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> ACCOUNT SETTINGS</a></li>
+                        <li><a href="#"><i class="fas fa-share-alt"></i> CONTENT & SOCIAL</a></li>
+                        <li class="logout"><a href="#" onclick="logout(); return false;"><i class="fas fa-sign-out-alt"></i> LOGOUT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="blogsPage-container">
+        <aside class="aside">
+            <div class="cate-logo">
+                <h2>Categories</h2>
+            </div>
+            <div class="categories">
+                <ul>
+                    <li><a href="#" class="category-link active" data-category="all">All Categories</a></li>
+                    <li><a href="#" class="category-link" data-category="technology">Technology</a></li>
+                    <li><a href="#" class="category-link" data-category="lifestyle">Lifestyle</a></li>
+                    <li><a href="#" class="category-link" data-category="travel">Travel</a></li>
+                    <li><a href="#" class="category-link" data-category="food">Food</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="blogs-grid">
+            <div class="blogs-section-tabs">
+                <button class="tab-button active" data-tab="explore">
+                    <i class="fas fa-compass"></i> Explore
+                </button>
+                <button class="tab-button" data-tab="published">
+                    <i class="fas fa-check-circle"></i> Published Blogs
+                </button>
+                <button class="tab-button" data-tab="drafts">
+                    <i class="fas fa-edit"></i> Drafts
+                </button>
+            </div>
+
+            <div class="tab-content active" id="explore">
+                <div class="grid-container" id="explore-blogs">
+                    <!-- Public blogs will be loaded here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="published">
+                <div class="grid-container" id="published-blogs">
+                    <!-- User's published blogs will be loaded here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="drafts">
+                <div class="grid-container" id="draft-blogs">
+                    <!-- User's draft blogs will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("userDropdown").classList.toggle("active");
+        }
+        
+        window.onclick = function(event) {
+            if (!event.target.matches('.user-icon') && !event.target.matches('.user-icon i')) {
+                var dropdown = document.getElementById("userDropdown");
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            }
+        }
+
+        // Debug function to log all blog IDs
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) return;
+                
+                // Log all published blogs
+                const publishedRes = await fetch('http://localhost:5000/api/blogs/user/published', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const published = await publishedRes.json();
+                console.log('Published blog IDs:', published.map(blog => blog._id));
+                
+                // Log all draft blogs
+                const draftsRes = await fetch('http://localhost:5000/api/blogs/user/drafts', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const drafts = await draftsRes.json();
+                console.log('Draft blog IDs:', drafts.map(blog => blog._id));
+            } catch (error) {
+                console.error('Error fetching blog IDs:', error);
+            }
+        });
+    </script>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
